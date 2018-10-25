@@ -47,7 +47,7 @@ class SingleProject extends Component {
 										>
 											{task.title}
 
-											<button className='btn btn-primary btn-sm'>
+											<button className='btn btn-primary btn-sm' onClick={this.handleMarkProjectAsCompleted}>
 												Mark as completed
 											</button>
 										</li>
@@ -60,6 +60,16 @@ class SingleProject extends Component {
 			</div>
 		)
 	}
+
+	// add this inside the `constructor`
+	this.handleMarkProjectAsCompleted = this.handleMarkProjectAsCompleted.bind(this)
+
+	// add these outside the `constructor`, as a standalone method
+	handleMarkProjectAsCompleted () {
+		const { history } = this.props
+
+	axios.put(`/api/projects/${this.state.project.id}`)
+		.then(response => history.push('/'))
 }
 
 export default SingleProject
