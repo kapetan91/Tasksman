@@ -13,6 +13,7 @@ class App extends Component {
 					<Header />
 					<Switch>
 						<Route exact path='/' component={ProjectsList} />
+						<Route path='/create' component={NewProject} />
 					</Switch>
 				</div>
 			</BrowserRouter>
